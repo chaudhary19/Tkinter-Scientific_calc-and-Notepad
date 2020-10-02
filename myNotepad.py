@@ -62,7 +62,7 @@ def about_notepad():
     tmsg.showinfo('About Notepad','This Notepad is created by Mayank Chaudhary @chaudhary_19')
 
 def Appquit():
-    quit()
+    root.destroy()
 
 
 root=Tk()
