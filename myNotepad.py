@@ -64,12 +64,39 @@ def about_notepad():
 def Appquit():
     root.destroy()
 
+# Right Click Menu Function
+def rightClickMenu(event):
+    global menu
+    menu = Menu(root, tearoff = 0)
+    menu.add_command(label = "Cut")
+    menu.add_command(label = "Copy")
+    menu.add_command(label = "Paste")
+
+def showRightClickMenu(event):
+    eventWidget = event.widget
+    menu.entryconfigure(
+        "Cut",
+        command=lambda: eventWidget.event_generate("<<Cut>>")
+    )
+    menu.entryconfigure(
+        "Copy",
+        command=lambda: eventWidget.event_generate("<<Copy>>")
+    )
+    menu.entryconfigure(
+        "Paste",
+        command=lambda: eventWidget.event_generate("<<Paste>>")
+    )
+    menu.tk.call("tk_popup", menu, event.x_root, event.y_root)
+
 
 root=Tk()
 root.geometry('688x700')
 # I m not going to use minsize & maxsize here...
 root.title('Untitled - Notepad')
-root.wm_iconbitmap('calculator.png')
+# root.wm_iconbitmap('calculator.png')
+
+#Calling Right Click Menu
+rightClickMenu(root)
 
 menubar=Menu(root)
 m1=Menu(menubar,tearoff=0)
@@ -100,6 +127,8 @@ Textarea=Text(root,font='lucida 13')
 file=None
 Textarea.pack(expand=True,fill=BOTH)
 
+# Binding Right Click Menu to Right button (Mouse)
+root.bind_class("Text", "<Button-3><ButtonRelease-3>", showRightClickMenu)
 
 scrollbar=Scrollbar(Textarea)
 scrollbar.pack(side=RIGHT,fill=Y)
