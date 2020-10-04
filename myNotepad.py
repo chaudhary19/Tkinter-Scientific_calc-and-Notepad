@@ -11,7 +11,7 @@ def new():
 
 def save():
     global file
-    if file==None:
+    if file is None:
         file=asksaveasfilename(initialfile='Untitled.txt',defaultextension='.txt',filetypes=[('All Files','*.*'),('Text documents','*.txt')])
 
         if file=='':
@@ -61,7 +61,7 @@ def view_help():
 def about_notepad():
     tmsg.showinfo('About Notepad','This Notepad is created by Mayank Chaudhary @chaudhary_19')
 
-def Appquit():
+def appQuit():
     root.destroy()
 
 # Right Click Menu Function
@@ -104,7 +104,7 @@ m1.add_command(label='New',command=new)
 m1.add_command(label='Save',command=save)
 m1.add_command(label='Open',command=Open)
 m1.add_separator()
-m1.add_command(label='Exit',command=Appquit)
+m1.add_command(label='Exit',command=appQuit)
 
 root.config(menu=menubar)
 menubar.add_cascade(label='File',menu=m1)
