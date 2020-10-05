@@ -1,4 +1,5 @@
 from tkinter import *
+import pyttsx3
 import tkinter.messagebox as tmsg
 import os
 from tkinter.filedialog import askopenfilename,askopenfile,asksaveasfile,asksaveasfilename
@@ -44,8 +45,12 @@ def Open():
         Textarea.insert(1.0, f.read())
         f.close()
 
-
-
+# This allows you to make anything speak
+        
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+        
 def cut():
     Textarea.event_generate(('<<Cut>>'))
 
@@ -86,6 +91,7 @@ def showRightClickMenu(event):
         "Paste",
         command=lambda: eventWidget.event_generate("<<Paste>>")
     )
+    
     menu.tk.call("tk_popup", menu, event.x_root, event.y_root)
 
 
@@ -100,6 +106,7 @@ rightClickMenu(root)
 
 menubar=Menu(root)
 m1=Menu(menubar,tearoff=0)
+m1.add_command(label = "Speak",command = speak(Textarea.get(1.0,END)))
 m1.add_command(label='New',command=new)
 m1.add_command(label='Save',command=save)
 m1.add_command(label='Open',command=Open)
@@ -126,6 +133,8 @@ menubar.add_cascade(label='Help',menu=m3)
 Textarea=Text(root,font='lucida 13')
 file=None
 Textarea.pack(expand=True,fill=BOTH)
+
+
 
 # Binding Right Click Menu to Right button (Mouse)
 root.bind_class("Text", "<Button-3><ButtonRelease-3>", showRightClickMenu)
