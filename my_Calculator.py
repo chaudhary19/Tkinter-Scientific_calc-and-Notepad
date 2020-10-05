@@ -46,6 +46,8 @@ root.geometry(f'{canvas_width}x{canvas_height}')
 root.maxsize(canvas_width,canvas_height)
 root.minsize(canvas_width,canvas_height)
 root.title('CalCulator @ Chaudhary_19')
+
+#root.wm_iconbitmap('calculator.png')
 root.call('wm', 'iconphoto', root._w, PhotoImage(file='calculator.png'))
 
 
@@ -60,24 +62,25 @@ my_menu.add_command(label='Exit',command=quit)
 
 
 sc_variable=StringVar()
-screen=Entry(root,textvariable=sc_variable,font='lucida 35 bold',fg='black',bg='white',borderwidth=10)
-screen.pack(pady=30)
+screen=Entry(root,textvariable=sc_variable,font='lucida 35 bold',fg='blue',bg='black')
+screen.pack(pady=10)
 
 
 f=Frame(root)
 f.pack()
-b1=Button(f,text='7',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
 
-b2=Button(f,text='8',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b3=Button(f,text='9',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b4=Button(f,text='*',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b5=Button(f,text='sin',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b6=Button(f,text='(',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
+b1=Button(f,text='7',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b1.pack(side=LEFT,padx=5)
+b2=Button(f,text='8',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b2.pack(side=LEFT,padx=5)
+b3=Button(f,text='9',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b3.pack(side=LEFT,padx=5)
+b4=Button(f,text='*',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='green')
+b4.pack(side=LEFT,padx=5)
+b5=Button(f,text='sin',font='lucida 30 bold',padx=5,borderwidth=2,fg='gold',bg='black')
+b5.pack(side=LEFT,padx=5)
+b6=Button(f,text='(',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='purple')
+b6.pack(side=LEFT,padx=5)
 b1.bind('<Button-1>',getvals)
 b2.bind('<Button-1>',getvals)
 b3.bind('<Button-1>',getvals)
@@ -93,18 +96,19 @@ for i in range(6):
 
 f=Frame(root)
 f.pack()
-b1=Button(f,text='4',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
 
-b2=Button(f,text='5',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b3=Button(f,text='6',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b4=Button(f,text='-',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b5=Button(f,text='cos',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b6=Button(f,text=')',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
+b1=Button(f,text='4',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b1.pack(side=LEFT,padx=5)
+b2=Button(f,text='5',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b2.pack(side=LEFT,padx=5)
+b3=Button(f,text='6',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b3.pack(side=LEFT,padx=5)
+b4=Button(f,text='-',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='green')
+b4.pack(side=LEFT,padx=5)
+b5=Button(f,text='cos',font='lucida 30 bold',padx=5,borderwidth=2,fg='gold',bg='black')
+b5.pack(side=LEFT,padx=5)
+b6=Button(f,text=')',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='purple')
+b6.pack(side=LEFT,padx=5)
 
 b1.bind('<Button-1>',getvals)
 b2.bind('<Button-1>',getvals)
@@ -119,18 +123,19 @@ for i in range(6):
     count += 1
 f=Frame(root)
 f.pack()
-b1=Button(f,text='1',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
 
-b2=Button(f,text='2',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b3=Button(f,text='3',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b4=Button(f,text='+',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b5=Button(f,text='tan',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b6=Button(f,text='%',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
+b1=Button(f,text='1',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b1.pack(side=LEFT,padx=5)
+b2=Button(f,text='2',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b2.pack(side=LEFT,padx=5)
+b3=Button(f,text='3',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b3.pack(side=LEFT,padx=5)
+b4=Button(f,text='+',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='green')
+b4.pack(side=LEFT,padx=5)
+b5=Button(f,text='tan',font='lucida 30 bold',padx=5,borderwidth=2,fg='gold',bg='black')
+b5.pack(side=LEFT,padx=5)
+b6=Button(f,text='%',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='green')
+b6.pack(side=LEFT,padx=5)
 
 b1.bind('<Button-1>',getvals)
 b2.bind('<Button-1>',getvals)
@@ -145,17 +150,19 @@ for i in range(6):
     count += 1
 f=Frame(root)
 f.pack()
-b1=Button(f,text='.',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
+b1=Button(f,text='.',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='black')
+b1.pack(side=LEFT,padx=5)
+b2=Button(f,text='0',font='lucida 30 bold',padx=5,borderwidth=2,fg='black',bg='gold')
+b2.pack(side=LEFT,padx=5)
+b3=Button(f,text='=',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='green')
+b3.pack(side=LEFT,padx=5)
+b4=Button(f,text='/',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='green')
+b4.pack(side=LEFT,padx=5)
+b6=Button(f,text='log',font='lucida 30 bold',padx=5,borderwidth=2,fg='gold',bg='black')
+b6.pack(side=LEFT,padx=5)
+b5=Button(f,text='Clr',font='lucida 30 bold',padx=5,borderwidth=2,fg='yellow',bg='black')
+b5.pack(side=LEFT,padx=5)
 
-b2=Button(f,text='0',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b3=Button(f,text='sinh',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b4=Button(f,text='cosh',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b5=Button(f,text='tanh',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
-
-b6=Button(f,text='pi',font='lucida 15 bold',padx=20,pady=20,borderwidth=3,fg='black',bg='grey',width=3)
 
 b1.bind('<Button-1>',getvals)
 b2.bind('<Button-1>',getvals)
