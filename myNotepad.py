@@ -47,11 +47,14 @@ def Open():
 
 # This allows you to make anything speak
         
-def speak(audio):
+def speak():
+    audio=Textarea.get(1.0,END)
+    engine=pyttsx3.init()
     engine.say(audio)
     engine.runAndWait()
         
 def cut():
+    
     Textarea.event_generate(('<<Cut>>'))
 
 def copy():
@@ -103,10 +106,10 @@ root.title('Untitled - Notepad')
 
 #Calling Right Click Menu
 rightClickMenu(root)
-
+Textarea=Text(root,font='lucida 13')
 menubar=Menu(root)
 m1=Menu(menubar,tearoff=0)
-m1.add_command(label = "Speak",command = speak(Textarea.get(1.0,END)))
+m1.add_command(label = "Speak",command = speak)
 m1.add_command(label='New',command=new)
 m1.add_command(label='Save',command=save)
 m1.add_command(label='Open',command=Open)
@@ -130,7 +133,7 @@ m3.add_command(label='About Notepad',command=about_notepad)
 root.config(menu=menubar)
 menubar.add_cascade(label='Help',menu=m3)
 
-Textarea=Text(root,font='lucida 13')
+
 file=None
 Textarea.pack(expand=True,fill=BOTH)
 
